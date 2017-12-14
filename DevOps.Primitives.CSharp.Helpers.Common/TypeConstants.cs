@@ -19,5 +19,6 @@
         public const string Short = "short";
         public const string ShortNullable = "short?";
         public const string String = "string";
+        public const string Void = "void";
     }
 }
