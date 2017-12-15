@@ -9,5 +9,7 @@
         public static Block Create(params string[] statements)
             => new Block(
                 StatementLists.Create(statements));
+
+        public static Block Empty => new Block();
     }
 }
