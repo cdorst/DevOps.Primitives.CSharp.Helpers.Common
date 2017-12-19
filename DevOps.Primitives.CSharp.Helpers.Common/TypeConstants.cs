@@ -4,9 +4,9 @@
     {
         public const string Byte = "byte";
         public const string ByteNullable = "byte?";
-        public const string DateTime = "DateTime";
+        public const string DateTime = nameof(DateTime);
         public const string DateTimeNullable = "DateTime?";
-        public const string DateTimeOffset = "DateTimeOffset";
+        public const string DateTimeOffset = nameof(DateTimeOffset);
         public const string DateTimeOffsetNullable = "DateTimeOffset?";
         public const string Decimal = "decimal";
         public const string DecimalNullable = "decimal?";
@@ -19,6 +19,7 @@
         public const string Short = "short";
         public const string ShortNullable = "short?";
         public const string String = "string";
+        public const string Task = nameof(Task);
         public const string Void = "void";
     }
 }
