@@ -11,9 +11,9 @@ namespace DevOps.Primitives.CSharp.Helpers.Common
         public static UsingDirectiveList Create(params string[] directives)
             => Create(
                 directives
-                    .Select(u => new UsingDirective(u))
                     .Distinct()
                     .OrderBy(u => u)
+                    .Select(u => new UsingDirective(u))
                     .ToArray());
 
         private static List<UsingDirectiveListAssociation> GetListItems(params UsingDirective[] directives)
