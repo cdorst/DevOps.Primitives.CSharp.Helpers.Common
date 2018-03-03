@@ -11,8 +11,9 @@ namespace DevOps.Primitives.CSharp.Helpers.Common
             var dict = new Dictionary<string, string>();
             foreach (var reference in GetReferences(referenceLists))
             {
-                if (dict.ContainsKey(reference.Include)) continue;
-                dict.Add(reference.Include, reference.Version);
+                var include = reference.Include.Value;
+                if (dict.ContainsKey(include)) continue;
+                dict.Add(include, reference.Version.Value);
             }
             foreach (var item in dict) yield return new NuGetReference(item.Key, item.Value);
         }
@@ -23,7 +24,7 @@ namespace DevOps.Primitives.CSharp.Helpers.Common
         private static IOrderedEnumerable<NuGetReference> GetReferences(IEnumerable<NuGetReference>[] referenceLists)
             => referenceLists
                 .SelectMany(references => references)
-                .OrderBy(reference => reference.Include)
-                .ThenByDescending(reference => reference.Version);
+                .OrderBy(reference => reference.Include.Value)
+                .ThenByDescending(reference => reference.Version.Value);
     }
 }
