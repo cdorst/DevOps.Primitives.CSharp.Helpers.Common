@@ -17,5 +17,10 @@ namespace DevOps.Primitives.CSharp.Helpers.Common
             @class.MethodList = (existing == null) ? methodList : existing.Merge(methodList);
             return @class;
         }
+
+        public static ClassDeclaration WithMethods(
+            this ClassDeclaration @class,
+            params Method[] methods)
+            => @class.WithMethodList(Create(methods));
     }
 }

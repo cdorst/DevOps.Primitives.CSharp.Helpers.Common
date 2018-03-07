@@ -23,5 +23,10 @@ namespace DevOps.Primitives.CSharp.Helpers.Common
             @class.BaseList = (existing == null) ? baseList: existing.Merge(baseList);
             return @class;
         }
+
+        public static ClassDeclaration WithBases(
+            this ClassDeclaration @class,
+            params BaseType[] baseList)
+            => @class.WithBaseList(Create(baseList));
     }
 }

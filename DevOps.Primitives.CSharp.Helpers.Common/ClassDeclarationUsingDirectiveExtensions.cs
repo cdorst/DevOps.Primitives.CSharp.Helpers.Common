@@ -1,4 +1,5 @@
-﻿using static DevOps.Primitives.CSharp.Helpers.Common.UsingDirectives;
+﻿using System.Linq;
+using static DevOps.Primitives.CSharp.Helpers.Common.UsingDirectives;
 
 namespace DevOps.Primitives.CSharp.Helpers.Common
 {
@@ -28,5 +29,21 @@ namespace DevOps.Primitives.CSharp.Helpers.Common
             @class.UsingDirectiveList = (existing == null) ? usingDirectiveList : existing.Merge(usingDirectiveList);
             return @class;
         }
+
+        public static ClassDeclaration WithUsings(
+            this ClassDeclaration @class,
+            params UsingDirective[] usings)
+            => @class.WithUsingDirectiveList(UsingDirectiveLists.Create(usings));
+
+        public static ClassDeclaration WithUsings(
+            this ClassDeclaration @class,
+            params string[] usings)
+            => @class.WithUsingDirectiveList(UsingDirectiveLists.Create(usings));
+
+        public static ClassDeclaration WithUsingStatics(
+            this ClassDeclaration @class,
+            params string[] usingStatics)
+            => @class.WithUsingDirectiveList(
+                UsingDirectiveLists.Create(usingStatics.Select(u => UsingStatic(u)).ToArray()));
     }
 }
