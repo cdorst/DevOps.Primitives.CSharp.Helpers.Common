@@ -10,6 +10,21 @@ namespace DevOps.Primitives.CSharp.Helpers.Common
             return @class;
         }
 
+        public static ClassDeclaration WithSingleBaseType(
+            this ClassDeclaration @class,
+            BaseType baseType)
+            => @class
+                .ClearBaseList()
+                .WithBase(baseType);
+
+        public static ClassDeclaration WithSingleBaseType(
+            this ClassDeclaration @class,
+            string type,
+            TypeArgumentList arguments = null)
+            => @class
+                .ClearBaseList()
+                .WithBase(type, arguments);
+
         public static ClassDeclaration WithBase(
             this ClassDeclaration @class,
             BaseType baseType)

@@ -11,10 +11,17 @@ namespace DevOps.Primitives.CSharp.Helpers.Common
             return @class;
         }
 
+        public static ClassDeclaration WithSingleUsingDirective(
+            this ClassDeclaration @class,
+            string @namespace)
+            => @class
+                .ClearUsingDirectiveList()
+                .WithUsingDirective(Using(@namespace));
+
         public static ClassDeclaration WithUsingDirective(
             this ClassDeclaration @class,
             string @namespace)
-            => WithUsingDirective(@class, Using(@namespace));
+            => @class.WithUsingDirective(Using(@namespace));
 
         public static ClassDeclaration WithUsingDirective(
             this ClassDeclaration @class,
@@ -25,7 +32,7 @@ namespace DevOps.Primitives.CSharp.Helpers.Common
         public static ClassDeclaration WithUsingStaticDirective(
             this ClassDeclaration @class,
             string @namespace)
-            => WithUsingDirective(@class, UsingStatic(@namespace));
+            => @class.WithUsingDirective(UsingStatic(@namespace));
 
         public static ClassDeclaration WithUsingDirectiveList(
             this ClassDeclaration @class,

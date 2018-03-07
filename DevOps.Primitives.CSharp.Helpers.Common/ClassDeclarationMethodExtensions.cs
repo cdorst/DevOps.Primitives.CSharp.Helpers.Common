@@ -10,6 +10,13 @@ namespace DevOps.Primitives.CSharp.Helpers.Common
             return @class;
         }
 
+        public static ClassDeclaration WithSingleMethod(
+            this ClassDeclaration @class,
+            Method method)
+            => @class
+                .ClearMethodList()
+                .WithMethod(method);
+
         public static ClassDeclaration WithMethod(
             this ClassDeclaration @class,
             Method method)
