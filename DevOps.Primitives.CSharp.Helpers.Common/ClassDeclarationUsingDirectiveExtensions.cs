@@ -5,6 +5,12 @@ namespace DevOps.Primitives.CSharp.Helpers.Common
 {
     public static class ClassDeclarationUsingDirectiveExtensions
     {
+        public static ClassDeclaration ClearUsingDirectiveList(this ClassDeclaration @class)
+        {
+            @class.UsingDirectiveList = null;
+            return @class;
+        }
+
         public static ClassDeclaration WithUsingDirective(
             this ClassDeclaration @class,
             string @namespace)

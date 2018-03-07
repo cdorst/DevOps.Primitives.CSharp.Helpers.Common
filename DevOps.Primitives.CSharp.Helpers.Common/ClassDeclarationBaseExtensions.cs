@@ -4,6 +4,12 @@ namespace DevOps.Primitives.CSharp.Helpers.Common
 {
     public static class ClassDeclarationBaseExtensions
     {
+        public static ClassDeclaration ClearBaseList(this ClassDeclaration @class)
+        {
+            @class.BaseListId = null;
+            return @class;
+        }
+
         public static ClassDeclaration WithBase(
             this ClassDeclaration @class,
             BaseType baseType)

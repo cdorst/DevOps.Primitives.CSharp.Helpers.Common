@@ -4,6 +4,12 @@ namespace DevOps.Primitives.CSharp.Helpers.Common
 {
     public static class ClassDeclarationMethodExtensions
     {
+        public static ClassDeclaration ClearMethodList(this ClassDeclaration @class)
+        {
+            @class.MethodList = null;
+            return @class;
+        }
+
         public static ClassDeclaration WithMethod(
             this ClassDeclaration @class,
             Method method)
