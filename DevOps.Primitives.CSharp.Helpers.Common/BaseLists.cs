@@ -5,6 +5,12 @@ namespace DevOps.Primitives.CSharp.Helpers.Common
 {
     public static class BaseLists
     {
+        public static BaseList Byte
+            => Create("byte");
+
+        public static BaseList Short
+            => Create("short");
+
         public static BaseList Create(params BaseType[] baseTypes)
             => new BaseList(GetListItems(baseTypes));
 
