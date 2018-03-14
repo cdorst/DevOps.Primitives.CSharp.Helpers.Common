@@ -4,6 +4,6 @@
     {
         public static DocumentationCommentList Summary(string comment)
             => string.IsNullOrWhiteSpace(comment) ? null
-            : new DocumentationCommentList(DocumentationComment.SummaryElement, comment);
+            : new DocumentationCommentList(DocumentationComment.SummaryElement, comment, includeNewLine: true);
     }
 }
