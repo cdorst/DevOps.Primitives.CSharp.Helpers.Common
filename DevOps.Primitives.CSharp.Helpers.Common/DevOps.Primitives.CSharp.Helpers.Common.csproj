@@ -10,7 +10,7 @@
     <Description>Helpers for building C# type delcarations</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>CDorst.DevOps.Primitives.CSharp.Helpers.Common</PackageId>
-    <Version>3.10.0</Version>
+    <Version>3.10.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

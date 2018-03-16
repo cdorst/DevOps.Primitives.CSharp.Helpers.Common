@@ -17,7 +17,7 @@
                 type,
                 summaryComment,
                 attributes,
-                string.IsNullOrWhiteSpace(initializer) ? null : new Expression(initializer));
+                GetInitializerExpression(initializer));
 
         public static Field PrivateReadonly(string name, string type, string summaryComment = null, AttributeListCollection attributes = null)
             => new Field(
@@ -42,6 +42,10 @@
                 type,
                 summaryComment,
                 attributes,
-                string.IsNullOrWhiteSpace(initializer) ? null : new Expression(initializer));
+                GetInitializerExpression(initializer));
+
+        private static Expression GetInitializerExpression(string initializer)
+            => string.IsNullOrWhiteSpace(initializer) ? null
+            : new Expression(initializer.RemoveTrailingSemicolon());
     }
 }
