@@ -8,7 +8,13 @@
         public static Method Public(string identifier, string type, string arrowClauseExpression, ParameterList parameterList = null, DocumentationCommentList documentationCommentList = null, AttributeListCollection attributes = null)
             => new Method(identifier, type, arrowClauseExpression?.RemoveTrailingSemicolon(), parameterList, ModifierLists.Public, documentationCommentList, attributes);
 
+        public static Method Public(string identifier, string type, Block body, ParameterList parameterList = null, DocumentationCommentList documentationCommentList = null, AttributeListCollection attributes = null)
+            => new Method(identifier, type, parameterList, body, ModifierLists.Public, documentationCommentList, attributes);
+
         public static Method PublicStatic(string identifier, string type, string arrowClauseExpression, ParameterList parameterList = null, DocumentationCommentList documentationCommentList = null, AttributeListCollection attributes = null)
             => new Method(identifier, type, arrowClauseExpression?.RemoveTrailingSemicolon(), parameterList, ModifierLists.PublicStatic, documentationCommentList, attributes);
+
+        public static Method PublicStatic(string identifier, string type, Block body, ParameterList parameterList = null, DocumentationCommentList documentationCommentList = null, AttributeListCollection attributes = null)
+            => new Method(identifier, type, parameterList, body, ModifierLists.PublicStatic, documentationCommentList, attributes);
     }
 }
