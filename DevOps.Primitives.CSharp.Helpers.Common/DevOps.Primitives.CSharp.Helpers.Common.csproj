@@ -7,14 +7,14 @@
 
   <PropertyGroup>
     <Authors>cdorst</Authors>
-    <Description>Helpers for building C# type delcarations</Description>
+    <Description>Helpers for building C# type declarations</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>CDorst.DevOps.Primitives.CSharp.Helpers.Common</PackageId>
-    <Version>3.12.2</Version>
+    <Version>3.12.3</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CDorst.DevOps.Primitives.CSharp" Version="5.0.1" />
+    <PackageReference Include="CDorst.DevOps.Primitives.CSharp" Version="5.0.2" />
     <PackageReference Include="CDorst.DevOps.Primitives.NuGet" Version="3.1.1" />
   </ItemGroup>
 
