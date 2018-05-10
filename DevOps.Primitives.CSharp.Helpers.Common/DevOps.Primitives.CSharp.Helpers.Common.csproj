@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
@@ -10,11 +10,11 @@
     <Description>Helpers for building C# type declarations</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>CDorst.DevOps.Primitives.CSharp.Helpers.Common</PackageId>
-    <Version>3.12.4</Version>
+    <Version>3.12.5</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CDorst.DevOps.Primitives.CSharp" Version="5.1.0" />
+    <PackageReference Include="CDorst.DevOps.Primitives.CSharp" Version="6.1.1" />
     <PackageReference Include="CDorst.DevOps.Primitives.NuGet" Version="3.1.1" />
   </ItemGroup>
 
