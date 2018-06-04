@@ -2,7 +2,7 @@
 {
     public static class Fields
     {
-        public static Field PrivateConst(string name, string type, string summaryComment = null, AttributeListCollection attributes = null, Expression initializer = null)
+        public static Field PrivateConst(string name, string type, string summaryComment = default, AttributeListCollection attributes = default, Expression initializer = default)
             => new Field(
                 name,
                 type,
@@ -11,7 +11,7 @@
                 initializer,
                 attributes);
 
-        public static Field PrivateConst(string name, string type, string summaryComment = null, AttributeListCollection attributes = null, string initializer = null)
+        public static Field PrivateConst(string name, string type, string summaryComment = default, AttributeListCollection attributes = default, string initializer = default)
             => PrivateConst(
                 name,
                 type,
@@ -19,23 +19,41 @@
                 attributes,
                 GetInitializerExpression(initializer));
 
-        public static Field PrivateReadonly(string name, string type, string summaryComment = null, AttributeListCollection attributes = null)
+        public static Field PrivateReadonly(string name, string type, string summaryComment = default, AttributeListCollection attributes = default, Expression initializer = default)
             => new Field(
                 name,
                 type,
                 ModifierLists.PrivateReadonly,
                 Comments.Summary(summaryComment),
-                attributeListCollection: attributes);
+                initializer,
+                attributes);
 
-        public static Field PrivateStaticReadonly(string name, string type, string summaryComment = null, AttributeListCollection attributes = null)
+        public static Field PrivateReadonly(string name, string type, string summaryComment = default, AttributeListCollection attributes = default, string initializer = default)
+            => PrivateReadonly(
+                name,
+                type,
+                summaryComment,
+                attributes,
+                GetInitializerExpression(initializer));
+
+        public static Field PrivateStaticReadonly(string name, string type, string summaryComment = default, AttributeListCollection attributes = default, Expression initializer = default)
             => new Field(
                 name,
                 type,
                 ModifierLists.PrivateStaticReadonly,
                 Comments.Summary(summaryComment),
-                attributeListCollection: attributes);
+                initializer,
+                attributes);
 
-        public static Field PublicConst(string name, string type, string summaryComment = null, AttributeListCollection attributes = null, Expression initializer = null)
+        public static Field PrivateStaticReadonly(string name, string type, string summaryComment = default, AttributeListCollection attributes = default, string initializer = default)
+            => PrivateStaticReadonly(
+                name,
+                type,
+                summaryComment,
+                attributes,
+                GetInitializerExpression(initializer));
+
+        public static Field PublicConst(string name, string type, string summaryComment = default, AttributeListCollection attributes = default, Expression initializer = default)
             => new Field(
                 name,
                 type,
@@ -44,7 +62,7 @@
                 initializer,
                 attributes);
 
-        public static Field PublicConst(string name, string type, string summaryComment = null, AttributeListCollection attributes = null, string initializer = null)
+        public static Field PublicConst(string name, string type, string summaryComment = default, AttributeListCollection attributes = default, string initializer = default)
             => PublicConst(
                 name,
                 type,
@@ -52,21 +70,39 @@
                 attributes,
                 GetInitializerExpression(initializer));
 
-        public static Field PublicReadonly(string name, string type, string summaryComment = null, AttributeListCollection attributes = null)
+        public static Field PublicReadonly(string name, string type, string summaryComment = default, AttributeListCollection attributes = default, Expression initializer = default)
             => new Field(
                 name,
                 type,
                 ModifierLists.PublicReadonly,
                 Comments.Summary(summaryComment),
-                attributeListCollection: attributes);
+                initializer,
+                attributes);
 
-        public static Field PublicStaticReadonly(string name, string type, string summaryComment = null, AttributeListCollection attributes = null)
+        public static Field PublicReadonly(string name, string type, string summaryComment = default, AttributeListCollection attributes = default, string initializer = default)
+            => PublicReadonly(
+                name,
+                type,
+                summaryComment,
+                attributes,
+                GetInitializerExpression(initializer));
+
+        public static Field PublicStaticReadonly(string name, string type, string summaryComment = default, AttributeListCollection attributes = default, Expression initializer = default)
             => new Field(
                 name,
                 type,
                 ModifierLists.PublicStaticReadonly,
                 Comments.Summary(summaryComment),
-                attributeListCollection: attributes);
+                initializer,
+                attributes);
+
+        public static Field PublicStaticReadonly(string name, string type, string summaryComment = default, AttributeListCollection attributes = default, string initializer = default)
+            => PublicStaticReadonly(
+                name,
+                type,
+                summaryComment,
+                attributes,
+                GetInitializerExpression(initializer));
 
         private static Expression GetInitializerExpression(string initializer)
             => string.IsNullOrWhiteSpace(initializer) ? null
