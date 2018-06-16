@@ -13,15 +13,15 @@ namespace DevOps.Primitives.CSharp.Helpers.Common
 
         public static ClassDeclaration WithSingleUsingDirective(
             this ClassDeclaration @class,
-            string @namespace)
+            in string @namespace)
             => @class
                 .ClearUsingDirectiveList()
-                .WithUsingDirective(Using(@namespace));
+                .WithUsingDirective(Using(in @namespace));
 
         public static ClassDeclaration WithUsingDirective(
             this ClassDeclaration @class,
             string @namespace)
-            => @class.WithUsingDirective(Using(@namespace));
+            => @class.WithUsingDirective(Using(in @namespace));
 
         public static ClassDeclaration WithUsingDirective(
             this ClassDeclaration @class,
@@ -32,7 +32,7 @@ namespace DevOps.Primitives.CSharp.Helpers.Common
         public static ClassDeclaration WithUsingStaticDirective(
             this ClassDeclaration @class,
             string @namespace)
-            => @class.WithUsingDirective(UsingStatic(@namespace));
+            => @class.WithUsingDirective(UsingStatic(in @namespace));
 
         public static ClassDeclaration WithUsingDirectiveList(
             this ClassDeclaration @class,
@@ -57,6 +57,6 @@ namespace DevOps.Primitives.CSharp.Helpers.Common
             this ClassDeclaration @class,
             params string[] usingStatics)
             => @class.WithUsingDirectiveList(
-                UsingDirectiveLists.Create(usingStatics.Select(u => UsingStatic(u)).ToArray()));
+                UsingDirectiveLists.Create(usingStatics.Select(@using => UsingStatic(in @using)).ToArray()));
     }
 }

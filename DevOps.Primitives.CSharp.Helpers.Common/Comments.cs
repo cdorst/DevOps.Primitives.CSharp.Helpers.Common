@@ -1,9 +1,12 @@
-﻿namespace DevOps.Primitives.CSharp.Helpers.Common
+﻿using static DevOps.Primitives.CSharp.DocumentationComment;
+using static System.String;
+
+namespace DevOps.Primitives.CSharp.Helpers.Common
 {
     public static class Comments
     {
-        public static DocumentationCommentList Summary(string comment)
-            => string.IsNullOrWhiteSpace(comment) ? null
-            : new DocumentationCommentList(DocumentationComment.SummaryElement, comment, includeNewLineAtListLevel: true);
+        public static DocumentationCommentList Summary(in string comment)
+            => IsNullOrWhiteSpace(comment) ? null
+            : new DocumentationCommentList(SummaryElement, in comment, includeNewLineAtListLevel: true);
     }
 }

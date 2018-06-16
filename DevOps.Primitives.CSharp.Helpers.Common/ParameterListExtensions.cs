@@ -1,12 +1,15 @@
 ﻿using Common.EntityFrameworkServices;
+using System;
 using System.Linq;
+using static System.String;
 
 namespace DevOps.Primitives.CSharp.Helpers.Common
 {
     public static class ParameterListExtensions
     {
+        private static readonly Func<Parameter, string> _selector = record => Concat(record.Type.Name.Value, ":", record.Identifier.Name.Value);
+
         public static string GetTypesAndNames(this ParameterList list)
-            => string.Join(",", list.GetRecords()
-                    .Select(r => $"{r.Type.Name.Value}:{r.Identifier.Name.Value}"));
+            => Join(",", list.GetRecords().Select(_selector));
     }
 }

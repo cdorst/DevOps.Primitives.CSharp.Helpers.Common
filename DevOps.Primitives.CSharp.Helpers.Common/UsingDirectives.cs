@@ -2,11 +2,11 @@
 {
     public static class UsingDirectives
     {
-        public static UsingDirective Using(string @namespace)
-            => new UsingDirective(@namespace);
+        public static UsingDirective Using(in string @namespace)
+            => new UsingDirective(in @namespace);
 
-        public static UsingDirective UsingStatic(string identifier)
-            => new UsingDirective(identifier)
+        public static UsingDirective UsingStatic(in string identifier)
+            => new UsingDirective(in identifier)
             {
                 UsingStatic = true
             };

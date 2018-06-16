@@ -12,19 +12,19 @@ namespace DevOps.Primitives.CSharp.Helpers.Common
 
         public static ClassDeclaration WithSingleMethod(
             this ClassDeclaration @class,
-            Method method)
+            in Method method)
             => @class
                 .ClearMethodList()
-                .WithMethod(method);
+                .WithMethod(in method);
 
         public static ClassDeclaration WithMethod(
             this ClassDeclaration @class,
-            Method method)
+            in Method method)
             => @class.WithMethodList(Create(method));
 
         public static ClassDeclaration WithMethodList(
             this ClassDeclaration @class,
-            MethodList methodList)
+            in MethodList methodList)
         {
             var existing = @class.MethodList;
             @class.MethodList = (existing == null) ? methodList : existing.Merge(methodList);

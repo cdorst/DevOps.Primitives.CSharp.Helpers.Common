@@ -1,8 +1,11 @@
-﻿namespace DevOps.Primitives.CSharp.Helpers.Common
+﻿using static DevOps.Primitives.CSharp.Helpers.Common.Blocks;
+using static DevOps.Primitives.CSharp.ModifierLists;
+
+namespace DevOps.Primitives.CSharp.Helpers.Common
 {
     public static class Constructors
     {
-        public static Constructor Default(string name)
-            => new Constructor(name, new Block(), ModifierLists.Public);
+        public static Constructor Default(in string name)
+            => new Constructor(in name, in Empty, in Public);
     }
 }

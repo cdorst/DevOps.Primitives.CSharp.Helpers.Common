@@ -5,7 +5,7 @@ namespace DevOps.Primitives.CSharp.Helpers.Common
 {
     public static class UsingDirectiveListExtensions
     {
-        public static UsingDirectiveList Merge(this UsingDirectiveList instance, UsingDirectiveList given)
+        public static UsingDirectiveList Merge(this UsingDirectiveList instance, in UsingDirectiveList given)
             => instance.Merge<UsingDirectiveList, UsingDirective, UsingDirectiveListAssociation>(given, Instance);
     }
 }

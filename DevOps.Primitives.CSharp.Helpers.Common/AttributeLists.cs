@@ -1,14 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 
 namespace DevOps.Primitives.CSharp.Helpers.Common
 {
     public static class AttributeLists
     {
-        public static AttributeListCollection Create(params Attribute[] attributes)
-            => new AttributeListCollection(GetListItems(attributes));
+        private static readonly Func<Attribute, AttributeListCollectionAssociation> _selector = attribute => new AttributeListCollectionAssociation(in attribute);
 
-        private static List<AttributeListCollectionAssociation> GetListItems(params Attribute[] attributes)
-            => attributes.Select(attribute => new AttributeListCollectionAssociation(attribute)).ToList();
+        public static AttributeListCollection Create(params Attribute[] attributes)
+            => new AttributeListCollection(attributes.Select(_selector).ToList());
     }
 }

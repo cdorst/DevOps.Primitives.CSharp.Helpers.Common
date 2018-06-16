@@ -1,14 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 
 namespace DevOps.Primitives.CSharp.Helpers.Common
 {
     public static class MethodLists
     {
-        public static MethodList Create(params Method[] methods)
-            => new MethodList(GetListItems(methods));
+        private static readonly Func<Method, MethodListAssociation> _selector = method => new MethodListAssociation(in method);
 
-        private static List<MethodListAssociation> GetListItems(params Method[] methods)
-            => methods.Select(method => new MethodListAssociation(method)).ToList();
+        public static MethodList Create(params Method[] methods)
+            => new MethodList(methods.Select(_selector).ToList());
     }
 }

@@ -1,10 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 
 namespace DevOps.Primitives.CSharp.Helpers.Common
 {
     public static class BaseLists
     {
+        private static readonly Func<BaseType, BaseListAssociation> _baseTypeSelector = baseType => new BaseListAssociation(in baseType);
+        private static readonly Func<string, BaseType> _stringSelector = baseType => new BaseType(in baseType);
+
         public static BaseList Byte
             => Create("byte");
 
@@ -12,12 +15,9 @@ namespace DevOps.Primitives.CSharp.Helpers.Common
             => Create("short");
 
         public static BaseList Create(params BaseType[] baseTypes)
-            => new BaseList(GetListItems(baseTypes));
+            => new BaseList(baseTypes.Select(_baseTypeSelector).ToList());
 
         public static BaseList Create(params string[] baseTypes)
-            => Create(baseTypes.Select(b => new BaseType(b)).ToArray());
-
-        private static List<BaseListAssociation> GetListItems(params BaseType[] baseTypes)
-            => baseTypes.Select(baseType => new BaseListAssociation(baseType)).ToList();
+            => Create(baseTypes.Select(_stringSelector).ToArray());
     }
 }

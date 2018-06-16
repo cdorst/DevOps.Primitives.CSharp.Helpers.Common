@@ -2,13 +2,76 @@
 {
     public static class Interfaces
     {
-        public static InterfaceDeclaration Internal(string identifier, string @namespace, UsingDirectiveList usingDirectiveList = null, DocumentationCommentList documentationCommentList = null, AttributeListCollection attributeListCollection = null, TypeParameterList typeParameterList = null, ConstraintClauseList constraintClauseList = null, BaseList baseList = null, MethodList methodList = null, PropertyList propertyList = null)
-            => new InterfaceDeclaration(identifier, @namespace, ModifierLists.Internal, usingDirectiveList, documentationCommentList, attributeListCollection, typeParameterList, constraintClauseList, baseList, methodList, propertyList);
+        public static InterfaceDeclaration Internal(
+            in string identifier,
+            in string @namespace,
+            in UsingDirectiveList usingDirectiveList = default,
+            in DocumentationCommentList documentationCommentList = default,
+            in AttributeListCollection attributeListCollection = default,
+            in TypeParameterList typeParameterList = default,
+            in ConstraintClauseList constraintClauseList = default,
+            in BaseList baseList = default,
+            in MethodList methodList = default,
+            in PropertyList propertyList = default)
+            => new InterfaceDeclaration(
+                in identifier,
+                in @namespace,
+                in ModifierLists.Internal,
+                in usingDirectiveList,
+                in documentationCommentList,
+                in attributeListCollection,
+                in typeParameterList,
+                in constraintClauseList,
+                in baseList,
+                in methodList,
+                in propertyList);
 
-        public static InterfaceDeclaration Private(string identifier, string @namespace, UsingDirectiveList usingDirectiveList = null, DocumentationCommentList documentationCommentList = null, AttributeListCollection attributeListCollection = null, TypeParameterList typeParameterList = null, ConstraintClauseList constraintClauseList = null, BaseList baseList = null, MethodList methodList = null, PropertyList propertyList = null)
-            => new InterfaceDeclaration(identifier, @namespace, ModifierLists.Private, usingDirectiveList, documentationCommentList, attributeListCollection, typeParameterList, constraintClauseList, baseList, methodList, propertyList);
+        public static InterfaceDeclaration Private(
+            in string identifier,
+            in string @namespace,
+            in UsingDirectiveList usingDirectiveList = default,
+            in DocumentationCommentList documentationCommentList = default,
+            in AttributeListCollection attributeListCollection = default,
+            in TypeParameterList typeParameterList = default,
+            in ConstraintClauseList constraintClauseList = default,
+            in BaseList baseList = default,
+            in MethodList methodList = default,
+            in PropertyList propertyList = default)
+            => new InterfaceDeclaration(
+                in identifier,
+                in @namespace,
+                in ModifierLists.Private,
+                in usingDirectiveList,
+                in documentationCommentList,
+                in attributeListCollection,
+                in typeParameterList,
+                in constraintClauseList,
+                in baseList,
+                in methodList,
+                in propertyList);
 
-        public static InterfaceDeclaration Public(string identifier, string @namespace, UsingDirectiveList usingDirectiveList = null, DocumentationCommentList documentationCommentList = null, AttributeListCollection attributeListCollection = null, TypeParameterList typeParameterList = null, ConstraintClauseList constraintClauseList = null, BaseList baseList = null, MethodList methodList = null, PropertyList propertyList = null)
-            => new InterfaceDeclaration(identifier, @namespace, ModifierLists.Public, usingDirectiveList, documentationCommentList, attributeListCollection, typeParameterList, constraintClauseList, baseList, methodList, propertyList);
+        public static InterfaceDeclaration Public(
+            in string identifier,
+            in string @namespace,
+            in UsingDirectiveList usingDirectiveList = default,
+            in DocumentationCommentList documentationCommentList = default,
+            in AttributeListCollection attributeListCollection = default,
+            in TypeParameterList typeParameterList = default,
+            in ConstraintClauseList constraintClauseList = default,
+            in BaseList baseList = default,
+            in MethodList methodList = default,
+            in PropertyList propertyList = default)
+            => new InterfaceDeclaration(
+                in identifier,
+                in @namespace,
+                in ModifierLists.Public,
+                in usingDirectiveList,
+                in documentationCommentList,
+                in attributeListCollection,
+                in typeParameterList,
+                in constraintClauseList,
+                in baseList,
+                in methodList,
+                in propertyList);
     }
 }

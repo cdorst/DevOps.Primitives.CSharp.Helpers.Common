@@ -1,14 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 
 namespace DevOps.Primitives.CSharp.Helpers.Common
 {
     public static class PropertyLists
     {
-        public static PropertyList Create(params Property[] properties)
-            => new PropertyList(GetListItems(properties));
+        private static readonly Func<Property, PropertyListAssociation> _selector = property => new PropertyListAssociation(property);
 
-        private static List<PropertyListAssociation> GetListItems(params Property[] properties)
-            => properties.Select(property => new PropertyListAssociation(property)).ToList();
+        public static PropertyList Create(params Property[] properties)
+            => new PropertyList(properties.Select(_selector).ToList());
     }
 }

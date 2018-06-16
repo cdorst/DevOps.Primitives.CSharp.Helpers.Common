@@ -12,33 +12,33 @@ namespace DevOps.Primitives.CSharp.Helpers.Common
 
         public static ClassDeclaration WithSingleBaseType(
             this ClassDeclaration @class,
-            BaseType baseType)
+            in BaseType baseType)
             => @class
                 .ClearBaseList()
-                .WithBase(baseType);
+                .WithBase(in baseType);
 
         public static ClassDeclaration WithSingleBaseType(
             this ClassDeclaration @class,
-            string type,
-            TypeArgumentList arguments = null)
+            in string type,
+            in TypeArgumentList arguments = default)
             => @class
                 .ClearBaseList()
-                .WithBase(type, arguments);
+                .WithBase(in type, in arguments);
 
         public static ClassDeclaration WithBase(
             this ClassDeclaration @class,
-            BaseType baseType)
+            in BaseType baseType)
             => @class.WithBaseList(Create(baseType));
 
         public static ClassDeclaration WithBase(
             this ClassDeclaration @class,
-            string type,
-            TypeArgumentList arguments = null)
-            => WithBase(@class, new BaseType(type, arguments));
+            in string type,
+            in TypeArgumentList arguments = default)
+            => WithBase(@class, new BaseType(in type, in arguments));
 
         public static ClassDeclaration WithBaseList(
             this ClassDeclaration @class,
-            BaseList baseList)
+            in BaseList baseList)
         {
             var existing = @class.BaseList;
             @class.BaseList = (existing == null) ? baseList: existing.Merge(baseList);

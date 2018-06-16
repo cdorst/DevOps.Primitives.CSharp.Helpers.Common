@@ -9,7 +9,7 @@ namespace DevOps.Primitives.CSharp.Helpers.Common
         public static IEnumerable<NuGetReference> Combine(params IEnumerable<NuGetReference>[] referenceLists)
         {
             var dict = new Dictionary<string, string>();
-            foreach (var reference in GetReferences(referenceLists))
+            foreach (var reference in GetReferences(in referenceLists))
             {
                 var include = reference.Include.Value;
                 if (dict.ContainsKey(include)) continue;
@@ -18,10 +18,10 @@ namespace DevOps.Primitives.CSharp.Helpers.Common
             foreach (var item in dict) yield return new NuGetReference(item.Key, item.Value);
         }
 
-        public static NuGetReference Package(string name, string version)
+        public static NuGetReference Package(in string name, in string version)
             => new NuGetReference(name, version);
 
-        private static IOrderedEnumerable<NuGetReference> GetReferences(IEnumerable<NuGetReference>[] referenceLists)
+        private static IOrderedEnumerable<NuGetReference> GetReferences(in IEnumerable<NuGetReference>[] referenceLists)
             => referenceLists
                 .SelectMany(references => references)
                 .OrderBy(reference => reference.Include.Value)

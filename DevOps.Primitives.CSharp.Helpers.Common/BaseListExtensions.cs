@@ -5,7 +5,7 @@ namespace DevOps.Primitives.CSharp.Helpers.Common
 {
     public static class BaseListExtensions
     {
-        public static BaseList Merge(this BaseList instance, BaseList given)
+        public static BaseList Merge(this BaseList instance, in BaseList given)
             => instance.Merge<BaseList, BaseType, BaseListAssociation>(given, Instance);
     }
 }

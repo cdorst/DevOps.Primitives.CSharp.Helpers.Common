@@ -1,14 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 
 namespace DevOps.Primitives.CSharp.Helpers.Common
 {
     public static class FieldLists
     {
-        public static FieldList Create(params Field[] fields)
-            => new FieldList(GetListItems(fields));
+        private static readonly Func<Field, FieldListAssociation> _selector = field => new FieldListAssociation(in field);
 
-        private static List<FieldListAssociation> GetListItems(params Field[] fields)
-            => fields.Select(field => new FieldListAssociation(field)).ToList();
+        public static FieldList Create(params Field[] fields)
+            => new FieldList(fields.Select(_selector).ToList());
     }
 }

@@ -1,14 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 
 namespace DevOps.Primitives.CSharp.Helpers.Common
 {
     public static class ArgumentLists
     {
-        public static ArgumentList Create(params Argument[] arguments)
-            => new ArgumentList(GetListItems(arguments));
+        private static readonly Func<Argument, ArgumentListAssociation> _selector = argument => new ArgumentListAssociation(in argument);
 
-        private static List<ArgumentListAssociation> GetListItems(params Argument[] arguments)
-            => arguments.Select(argument => new ArgumentListAssociation(argument)).ToList();
+        public static ArgumentList Create(params Argument[] arguments)
+            => new ArgumentList(arguments.Select(_selector).ToList());
     }
 }

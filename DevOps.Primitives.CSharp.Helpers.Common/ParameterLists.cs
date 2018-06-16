@@ -1,17 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 
 namespace DevOps.Primitives.CSharp.Helpers.Common
 {
     public static class ParameterLists
     {
+        private static readonly Func<Parameter, ParameterListAssociation> _selector = parameter => new ParameterListAssociation(parameter);
+
         public static ParameterList Create(params Parameter[] parameters)
-            => new ParameterList(GetListItems(parameters));
+            => new ParameterList(parameters.Select(_selector).ToList());
 
-        public static ParameterList Single(string name, string type)
-            => new ParameterList(name, type);
-
-        private static List<ParameterListAssociation> GetListItems(params Parameter[] parameters)
-            => parameters.Select(parameter => new ParameterListAssociation(parameter)).ToList();
+        public static ParameterList Single(in string name, in string type)
+            => new ParameterList(in name, in type);
     }
 }
