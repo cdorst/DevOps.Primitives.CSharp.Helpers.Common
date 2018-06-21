@@ -4,9 +4,9 @@
     {
         public static string RemoveTrailingSemicolon(in string instance)
         {
-            var index = instance.Length;
-            return instance[index] == ';'
-                ? instance.Substring(0, index - 1)
+            var lengthMinusOne = instance.Length - 1;
+            return instance[lengthMinusOne] == ';'
+                ? instance.Substring(0, lengthMinusOne)
                 : instance;
         }
     }
